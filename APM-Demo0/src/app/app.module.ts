@@ -16,22 +16,28 @@ import { PageNotFoundComponent } from './home/page-not-found.component';
 
 /* Feature Modules */
 import { UserModule } from './user/user.module';
+import { StoreModule } from '@ngrx/store';
+
+// StoreModule.forRoot takes two args:
+// 1. the reducer for the root module
+// 2. configuration options
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(ProductData),
-    UserModule,
-    AppRoutingModule
-  ],
-  declarations: [
-    AppComponent,
-    ShellComponent,
-    MenuComponent,
-    WelcomeComponent,
-    PageNotFoundComponent
-  ],
-  bootstrap: [AppComponent]
+   imports: [
+      BrowserModule,
+      HttpClientModule,
+      HttpClientInMemoryWebApiModule.forRoot(ProductData),
+      UserModule,
+      AppRoutingModule,
+      StoreModule.forRoot({}, {})
+   ],
+   declarations: [
+      AppComponent,
+      ShellComponent,
+      MenuComponent,
+      WelcomeComponent,
+      PageNotFoundComponent
+   ],
+   bootstrap: [AppComponent]
 })
 export class AppModule { }
